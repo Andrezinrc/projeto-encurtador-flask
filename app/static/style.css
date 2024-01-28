@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  background-color: #121328;
+}
+.formulario{
+  max-width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.botao{
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 400px){
+  .formulario{
+    width: 350px;
+  }
+}

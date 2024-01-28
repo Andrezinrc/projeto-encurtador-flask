@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename="style.css")  }}"></link>
+    <title>Encurtador de URL</title>
+</head>
+<body>
+    <form class="formulario max-auto p-4" method="post" action="/">
+        <h1 class="text-center text-light">Encurtador de URL</h1>
+        <label class="text-light"for="url">Digite uma URL https://:</label>
+        <input class="form-control bg-transparent text-light border-end-0 border-top-0 border-start-0 mb-4" type="url"
+            name="url"
+            id="url"
+            placeholder="https://www.exemplo.com"
+            pattern="https://.*"
+            size="50"
+            value="{{url_antiga}}"
+            required
+        >
+        <button class="botao btn btn-primary btn-block w-100"  type="submit">Encurtar</button>
+        <br>
+        <label class="text-light" >URL Gerada: </label>
+        <input class="form-control bg-transparent text-light border-end-0 border-top-0 border-start-0 mb-3"  name="generated_url" value="{{nova_url}}"></input>
+        <div>
+          {% with mensagems= get_flashed_messages() %}
+            {% if mensagems %}
+              {% for mensagem in mensagems %}
+                <p class="text-center text-light">{{ mensagem }}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </div>
+    </form>
+</body>
+</html>
